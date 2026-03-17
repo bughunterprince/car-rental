@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F4F1EB;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 80px;
+    background:white;
+}
+
+.logo{
+    font-weight:800;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.container{
+    padding:50px 80px;
+}
+
+h2{
+    margin-bottom:30px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-bottom:50px;
+}
+
+.stat-card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.stat-card h3{
+    font-size:14px;
+    color:#777;
+}
+
+.stat-card p{
+    font-size:22px;
+    font-weight:700;
+    margin-top:8px;
+}
+
+.charts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.chart-box{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+canvas {
+    max-width: 100%;
+}
+
+@media(max-width:900px){
+    .charts{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">ADMIN PANEL</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="userdash.html">User Dashboard</a>
+        <a href="login.html">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <h2>Analytics Dashboard</h2>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-card">
+            <h3>Total Revenue</h3>
+            <p>₹12,45,000</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Bookings</h3>
+            <p>542</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Active Rentals</h3>
+            <p>37</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>High Demand City</h3>
+            <p>Delhi 🔥</p>
+        </div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="charts">
+
+        <div class="chart-box">
+            <h3>Monthly Revenue</h3>
+            <canvas id="revenueChart"></canvas>
+        </div>
+
+        <div class="chart-box">
+            <h3>Car Popularity</h3>
+            <canvas id="carChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+// Revenue Chart
+const revenueCtx = document.getElementById('revenueChart');
+
+new Chart(revenueCtx, {
+    type: 'line',
+    data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+        datasets: [{
+            label: 'Revenue',
+            data: [120000, 180000, 150000, 220000, 250000, 300000],
+            borderColor: '#E6A93E',
+            backgroundColor: 'rgba(230,169,62,0.2)',
+            tension: 0.4
+        }]
+    }
+});
+
+// Car Popularity Chart
+const carCtx = document.getElementById('carChart');
+
+new Chart(carCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Creta','XUV700','Nexon','BMW','Mustang'],
+        datasets: [{
+            label: 'Bookings',
+            data: [120, 95, 150, 60, 40],
+            backgroundColor: '#111'
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>

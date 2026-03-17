@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Cars</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F4F1EB;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 80px;
+    background:white;
+}
+
+.logo{
+    font-weight:800;
+}
+
+.nav-links a{
+    text-decoration:none;
+    margin-left:30px;
+    color:#333;
+}
+
+/* PAGE LAYOUT */
+.container{
+    display:flex;
+    padding:60px 80px;
+}
+
+/* FILTER SIDEBAR */
+.filters{
+    width:25%;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    height:fit-content;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.filters h3{
+    margin-bottom:20px;
+}
+
+.filters label{
+    font-size:14px;
+    display:block;
+    margin-top:15px;
+}
+
+.filters select, .filters input{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border:1px solid #ddd;
+    border-radius:5px;
+}
+
+/* CAR GRID */
+.cars{
+    width:75%;
+    margin-left:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h4{
+    margin-bottom:8px;
+}
+
+.price{
+    color:#666;
+    font-size:14px;
+}
+
+.ai-price{
+    color:#E6A93E;
+    font-weight:600;
+    margin-top:5px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 15px;
+    background:#111;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-size:14px;
+}
+
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+
+    .filters{
+        width:100%;
+        margin-bottom:30px;
+    }
+
+    .cars{
+        width:100%;
+        margin-left:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">RENTAL</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="userdash.html">Dashboard</a>
+        <a href="login.html">Login</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- FILTERS -->
+    <div class="filters">
+        <h3>Filter Cars</h3>
+
+        <label>Car Type</label>
+        <select>
+            <option>All</option>
+            <option>SUV</option>
+            <option>Sedan</option>
+            <option>Hatchback</option>
+        </select>
+
+        <label>Fuel Type</label>
+        <select>
+            <option>All</option>
+            <option>Petrol</option>
+            <option>Diesel</option>
+            <option>Electric</option>
+        </select>
+
+        <label>Transmission</label>
+        <select>
+            <option>All</option>
+            <option>Automatic</option>
+            <option>Manual</option>
+        </select>
+
+        <label>Max Price (₹)</label>
+        <input type="number" placeholder="5000">
+    </div>
+
+    <!-- CARS GRID -->
+    <div class="cars">
+        <div class="grid">
+
+    <!-- SUV -->
+    <div class="card">
+        <img src="assets/images/creta.jpg">
+        <div class="card-content">
+            <h4>Hyundai Creta (SUV)</h4>
+            <div class="price">Base: ₹2800/day</div>
+            <div class="ai-price">AI Suggested: ₹3200/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="assets/images/xuv_700.jpg">
+        <div class="card-content">
+            <h4>Mahindra XUV700 (SUV)</h4>
+            <div class="price">Base: ₹3500/day</div>
+            <div class="ai-price">AI Suggested: ₹4100/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <!-- Sedan -->
+    <div class="card">
+        <img src="assets/images/honda_city.jpg">
+        <div class="card-content">
+            <h4>Honda City (Sedan)</h4>
+            <div class="price">Base: ₹2400/day</div>
+            <div class="ai-price">AI Suggested: ₹2700/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="assets/images/slavia.jpg">
+        <div class="card-content">
+            <h4>Skoda Slavia (Sedan)</h4>
+            <div class="price">Base: ₹2600/day</div>
+            <div class="ai-price">AI Suggested: ₹3000/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <!-- Hatchback -->
+    <div class="card">
+        <img src="assets/images/swift.jpg">
+        <div class="card-content">
+            <h4>Maruti Swift (Hatchback)</h4>
+            <div class="price">Base: ₹1800/day</div>
+            <div class="ai-price">AI Suggested: ₹2100/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="assets/images/i20.jpg">
+        <div class="card-content">
+            <h4>Hyundai i20 (Hatchback)</h4>
+            <div class="price">Base: ₹1900/day</div>
+            <div class="ai-price">AI Suggested: ₹2300/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <!-- Electric -->
+    <div class="card">
+        <img src="assets/images/nexon_ev.jpg">
+        <div class="card-content">
+            <h4>Tata Nexon EV (Electric)</h4>
+            <div class="price">Base: ₹3000/day</div>
+            <div class="ai-price">AI Suggested: ₹3400/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <!-- Additional SUVs -->
+    <div class="card">
+        <img src="assets/images/fortuner.jpg">
+        <div class="card-content">
+            <h4>Toyota Fortuner (SUV)</h4>
+            <div class="price">Base: ₹4800/day</div>
+            <div class="ai-price">AI Suggested: ₹5300/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="assets/images/seltos.jpg">
+        <div class="card-content">
+            <h4>Kia Seltos (SUV)</h4>
+            <div class="price">Base: ₹3000/day</div>
+            <div class="ai-price">AI Suggested: ₹3400/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="assets/images/virtus.jpg">
+        <div class="card-content">
+            <h4>Volkswagen Virtus (Sedan)</h4>
+            <div class="price">Base: ₹2600/day</div>
+            <div class="ai-price">AI Suggested: ₹2950/day</div>
+            <a href="carsdetail.html" class="btn">View Details</a>
+        </div>
+    </div>
+
+</div>
+    </div>
+
+</div>
+
+</body>
+</html>

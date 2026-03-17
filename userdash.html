@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F4F1EB;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 80px;
+    background:white;
+}
+
+.logo{
+    font-weight:800;
+}
+
+.container{
+    padding:50px 80px;
+}
+
+h2{
+    margin-bottom:30px;
+}
+
+/* USER CARD */
+.user-card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom:40px;
+}
+
+.user-card h3{
+    margin-bottom:10px;
+}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    margin-bottom:40px;
+}
+
+.stat-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.stat-box p{
+    font-size:18px;
+    font-weight:600;
+}
+
+/* BOOKINGS TABLE */
+.table{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom:40px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:12px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+}
+
+th{
+    color:#777;
+    font-size:14px;
+}
+
+/* RECOMMENDATIONS */
+.recommendations{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card-content h4{
+    margin-bottom:8px;
+}
+
+.ai{
+    color:#E6A93E;
+    font-weight:600;
+}
+
+@media(max-width:900px){
+    .container{
+        padding:30px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">USER PANEL</div>
+</div>
+
+<div class="container">
+
+    <h2>Welcome, Pranav 👋</h2>
+
+    <!-- USER INFO -->
+    <div class="user-card">
+        <h3>Email: pranav@email.com</h3>
+        <p>Member Since: January 2026</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-box">
+            <p>Total Bookings: 8</p>
+        </div>
+        <div class="stat-box">
+            <p>Total Spent: ₹48,000</p>
+        </div>
+        <div class="stat-box">
+            <p>Active Rentals: 1</p>
+        </div>
+    </div>
+
+    <!-- BOOKING HISTORY -->
+    <div class="table">
+        <h3>Booking History</h3>
+        <table>
+            <tr>
+                <th>Car</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Total</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Hyundai Creta</td>
+                <td>10 Jan 2026</td>
+                <td>13 Jan 2026</td>
+                <td>₹9,600</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>BMW 3 Series</td>
+                <td>22 Feb 2026</td>
+                <td>24 Feb 2026</td>
+                <td>₹16,400</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>Tata Nexon EV</td>
+                <td>15 Mar 2026</td>
+                <td>18 Mar 2026</td>
+                <td>₹10,200</td>
+                <td>Active</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- RECOMMENDED CARS -->
+    <h3>Recommended For You 💡</h3>
+    <div class="recommendations">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6">
+            <div class="card-content">
+                <h4>Mahindra XUV700</h4>
+                <div class="ai">AI Recommended</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7">
+            <div class="card-content">
+                <h4>Ford Mustang</h4>
+                <div class="ai">Based on your bookings</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

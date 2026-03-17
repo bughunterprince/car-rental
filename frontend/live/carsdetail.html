@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F4F1EB;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 80px;
+    background:white;
+}
+
+.logo{
+    font-weight:800;
+}
+
+.nav-links a{
+    text-decoration:none;
+    margin-left:30px;
+    color:#333;
+}
+
+/* MAIN SECTION */
+.container{
+    display:flex;
+    padding:60px 80px;
+    gap:60px;
+}
+
+/* IMAGE */
+.car-image{
+    width:55%;
+}
+
+.car-image img{
+    width:100%;
+    border-radius:12px;
+}
+
+/* DETAILS */
+.details{
+    width:45%;
+}
+
+.details h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.specs{
+    margin:20px 0;
+}
+
+.specs div{
+    margin-bottom:8px;
+    color:#555;
+}
+
+.price{
+    font-size:18px;
+    margin-top:20px;
+}
+
+.ai-price{
+    color:#E6A93E;
+    font-weight:700;
+    margin-top:5px;
+}
+
+/* DEMAND BAR */
+.demand{
+    margin-top:20px;
+}
+
+.bar{
+    height:10px;
+    width:100%;
+    background:#ddd;
+    border-radius:5px;
+    overflow:hidden;
+}
+
+.bar-fill{
+    height:100%;
+    width:70%;
+    background:#E6A93E;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 25px;
+    background:#111;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:600;
+}
+
+.btn:hover{
+    opacity:0.8;
+}
+
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+
+    .car-image, .details{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">RENTAL</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="userdash.html">Dashboard</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- IMAGE -->
+    <div class="car-image">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details">
+        <h2>Hyundai Creta (SUV)</h2>
+
+        <div class="specs">
+            <div>✔ Fuel Type: Petrol</div>
+            <div>✔ Transmission: Automatic</div>
+            <div>✔ Seats: 5</div>
+            <div>✔ Mileage: 18 km/l</div>
+            <div>✔ AC: Yes</div>
+        </div>
+
+        <div class="price">Base Price: ₹2800/day</div>
+        <div class="ai-price">AI Suggested Price: ₹3200/day</div>
+
+        <div class="demand">
+            <p style="margin-bottom:8px;">🔥 Demand Level: High</p>
+            <div class="bar">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+
+        <a href="booking.html" class="btn">Book Now</a>
+    </div>
+
+</div>
+
+</body>
+</html>

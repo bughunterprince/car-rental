@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Car Rental</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#f8f6f1,#e8e3da,#f5f3ef);
+    color:#111;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 80px;
+background:white;
+}
+
+.logo{
+font-weight:800;
+font-size:20px;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-size:14px;
+}
+
+.btn{
+background:#E6A93E;
+padding:10px 18px;
+border-radius:6px;
+font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px 80px;
+    background-image: url("https://images.unsplash.com/photo-1502877338535-766e1452684a");
+    background-size:cover;
+    background-position:center;
+    border-radius:15px;
+    margin:40px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    font-weight:800;
+    color:white;
+}
+
+.search-box{
+background:white;
+padding:25px;
+border-radius:10px;
+display:flex;
+gap:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.search-box div{
+display:flex;
+flex-direction:column;
+}
+
+.search-box label{
+font-size:13px;
+color:#777;
+margin-bottom:5px;
+}
+
+.search-box input{
+padding:10px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+.search-btn{
+background:#111;
+color:white;
+padding:12px 25px;
+border-radius:6px;
+cursor:pointer;
+border:none;
+}
+
+.search-btn:hover{
+opacity:0.8;
+}
+
+.footer{
+margin-top:80px;
+text-align:center;
+padding:20px;
+color:#777;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:40px;
+}
+
+.search-box{
+flex-direction:column;
+width:90%;
+}
+
+}.footer{
+    background:#111;
+    color:white;
+    padding:60px 80px;
+}
+
+/* ADD NEW CSS BELOW THIS */
+
+/* Featured Cars */
+
+.featured{
+padding:80px;
+text-align:center;
+}
+
+.featured h2{
+font-size:36px;
+margin-bottom:40px;
+}
+
+.cars{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.car{
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.car img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+}
+
+/* Reviews */
+
+.reviews{
+padding:80px;
+text-align:center;
+background:#EFEAE3;
+}
+
+.review-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.review{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Stories */
+
+.stories{
+padding:80px;
+text-align:center;
+}
+
+.story-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.story img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+.car:hover,
+.story:hover,
+.review:hover{
+transform:translateY(-8px);
+transition:0.3s;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.navbar{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.hero{
+position:relative;
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+border-radius:20px;
+margin:40px;
+}
+
+.hero-text{
+position:relative;
+z-index:3;
+text-align:center;
+color:white;
+}
+
+.hero-text h1{
+font-size:60px;
+font-weight:800;
+margin-bottom:30px;
+}
+
+.hero-slider{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+
+.hero-slider img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+opacity:0;
+animation:slide 20s infinite;
+filter:contrast(1.05) saturate(1.1);
+}
+
+/* slide timing */
+
+.hero-slider img:nth-child(1){
+animation-delay:0s;
+}
+
+.hero-slider img:nth-child(2){
+animation-delay:5s;
+}
+
+.hero-slider img:nth-child(3){
+animation-delay:10s;
+}
+
+.hero-slider img:nth-child(4){
+animation-delay:15s;
+}
+
+@keyframes slide{
+
+0%{opacity:0}
+5%{opacity:1}
+25%{opacity:1}
+30%{opacity:0}
+100%{opacity:0}
+
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+z-index:2;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+<div class="logo">RENTAL</div>
+
+<div class="nav-links">
+<a href="first.html">Home</a>
+<a href="cars.html">Explore Cars</a>
+<a href="login.html" class="btn">Login</a>
+</div>
+
+</div>
+
+<!-- HERO SECTION -->
+
+<div class="hero">
+
+    <div class="hero-slider">
+        <img src="static/cars_pics/creta.jpg">
+        <img src="static/cars_pics/virtus_bg.jpg">
+        <img src="static/cars_pics/honda_city.jpg">
+        <img src="static/cars_pics/nexon_ev.jpg">
+    </div>
+
+    <div class="hero-text">
+        <h1>Find Your Perfect Rental Car</h1>
+
+        <form class="search-box" action="/cars">
+
+            <div>
+                <label>Location</label>
+                <input type="text" placeholder="Enter your city">
+            </div>
+
+            <div>
+                <label>Pick-up Date</label>
+                <input type="date">
+            </div>
+
+            <div>
+                <label>Return Date</label>
+                <input type="date">
+            </div>
+
+            <button class="search-btn">Explore Cars</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<section class="featured">
+
+<h2>Featured Cars</h2>
+
+<div class="cars">
+
+<div class="car">
+<img src="static/cars_pics/creta.jpg">
+<h3>Hyundai Creta</h3>
+<p>₹3200 / day</p>
+</div>
+
+<div class="car">
+<img src="static/cars_pics/xuv_700.jpg">
+<h3>Mahindra XUV700</h3>
+<p>₹4100 / day</p>
+</div>
+
+<div class="car">
+<img src="static/cars_pics/honda_city.jpg">
+<h3>Honda City</h3>
+<p>₹2700 / day</p>
+</div>
+
+<div class="car">
+<img src="static/cars_pics/nexon_ev.jpg">
+<h3>Tata Nexon EV</h3>
+<p>₹3400 / day</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="featured">
+
+<h2>All Images From Static Folder</h2>
+
+<div class="cars">
+
+<div class="car"><img src="static/cars_pics/creta.jpg"><h3>Creta</h3></div>
+<div class="car"><img src="static/cars_pics/fortuner.jpg"><h3>Fortuner</h3></div>
+<div class="car"><img src="static/cars_pics/honda_city.jpg"><h3>Honda City</h3></div>
+<div class="car"><img src="static/cars_pics/i20.jpg"><h3>i20</h3></div>
+<div class="car"><img src="static/cars_pics/nexon_ev.jpg"><h3>Nexon EV</h3></div>
+<div class="car"><img src="static/cars_pics/seltos.jpg"><h3>Seltos</h3></div>
+<div class="car"><img src="static/cars_pics/slavia.jpg"><h3>Slavia</h3></div>
+<div class="car"><img src="static/cars_pics/swift.jpg"><h3>Swift</h3></div>
+<div class="car"><img src="static/cars_pics/virtus.jpg"><h3>Virtus</h3></div>
+<div class="car"><img src="static/cars_pics/virtus_bg.jpg"><h3>Virtus BG</h3></div>
+<div class="car"><img src="static/cars_pics/virtus_alt.jpg"><h3>Virtus Alt</h3></div>
+<div class="car"><img src="static/cars_pics/xuv_700.jpg"><h3>XUV700</h3></div>
+<div class="car"><img src="static/cars_pics/manali_bg.jpg"><h3>Manali BG</h3></div>
+<div class="car"><img src="static/cars_pics/goa_bg.jpg"><h3>Goa BG</h3></div>
+<div class="car"><img src="static/cars_pics/road_bg.jpg"><h3>Road BG</h3></div>
+
+</div>
+
+</section>
+
+<section class="reviews">
+
+<h2>What Our Customers Say</h2>
+
+<div class="review-grid">
+
+<div class="review">
+<p>"Super smooth booking experience. The car was clean and exactly as described."</p>
+<h4>— Rahul Sharma</h4>
+</div>
+
+<div class="review">
+<p>"Loved the AI pricing feature. Got a great deal on a weekend trip."</p>
+<h4>— Priya Mehta</h4>
+</div>
+
+<div class="review">
+<p>"Very professional service. Will definitely rent again."</p>
+<h4>— Arjun Kapoor</h4>
+</div>
+
+</div>
+
+</section>
+
+<section class="stories">
+
+<h2>Stories Behind The Wheel</h2>
+
+<div class="story-grid">
+
+<div class="story">
+<img src="static/cars_pics/manali_bg.jpg">
+<h3>Road Trip to Manali</h3>
+<p>Experience the thrill of driving through the Himalayas.</p>
+</div>
+
+<div class="story">
+<img src="static/cars_pics/goa_bg.jpg">
+<h3>Coastal Drive Goa</h3>
+<p>Feel the ocean breeze with a luxury convertible.</p>
+</div>
+
+<div class="story">
+<img src="static/cars_pics/road_bg.jpg">
+<h3>Weekend Escape</h3>
+<p>Take a break from the city with our premium SUVs.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 Car Rental
+</div>
+
+</body>
+</html>

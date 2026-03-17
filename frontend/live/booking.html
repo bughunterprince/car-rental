@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Car</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F4F1EB;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 80px;
+    background:white;
+}
+
+.logo{
+    font-weight:800;
+}
+
+.container{
+    max-width:900px;
+    margin:60px auto;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+h2{
+    margin-bottom:30px;
+}
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.price-box{
+    margin-top:30px;
+    padding:20px;
+    background:#EFEAE3;
+    border-radius:8px;
+}
+
+.price-box p{
+    margin-bottom:8px;
+}
+
+.ai-price{
+    color:#E6A93E;
+    font-weight:700;
+}
+
+.total{
+    font-size:20px;
+    font-weight:700;
+    margin-top:10px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    background:#111;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    border:none;
+}
+
+@media(max-width:700px){
+    .booking-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">RENTAL</div>
+</div>
+
+<div class="container">
+
+    <h2>Book Hyundai Creta (SUV)</h2>
+
+    <div class="booking-grid">
+        <div>
+            <label>Start Date</label>
+            <input type="date" id="startDate">
+        </div>
+
+        <div>
+            <label>End Date</label>
+            <input type="date" id="endDate">
+        </div>
+    </div>
+
+    <div class="price-box">
+        <p>Base Price: ₹2800/day</p>
+        <p class="ai-price">AI Suggested Price: ₹3200/day</p>
+        <div class="total">Total: ₹0</div>
+    </div>
+
+    <button class="btn" onclick="calculateTotal()">Confirm Booking</button>
+
+</div>
+
+<script>
+function calculateTotal() {
+
+    const start = new Date(document.getElementById("startDate").value);
+    const end = new Date(document.getElementById("endDate").value);
+
+    if (!start || !end || end <= start) {
+        alert("Please select valid dates");
+        return;
+    }
+
+    const timeDiff = end - start;
+    const days = timeDiff / (1000 * 3600 * 24);
+
+    const aiPrice = 3200;
+    const total = days * aiPrice;
+
+    document.querySelector(".total").innerText = "Total: ₹" + total;
+    alert("Demo booking created! Total: ₹" + total);
+}
+</script>
+
+</body>
+</html>
