@@ -23,74 +23,90 @@ body{
 .navbar{
     display:flex;
     justify-content:space-between;
-    padding:25px 80px;
+    padding:15px 20px;
     background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo{
     font-weight:800;
+    font-size:18px;
 }
 
 .nav-links a{
     text-decoration:none;
-    margin-left:30px;
+    margin-left:20px;
     color:#333;
+    font-size:13px;
 }
 
 /* MAIN SECTION */
 .container{
     display:flex;
-    padding:60px 80px;
-    gap:60px;
+    flex-direction:row;
+    padding:30px 20px;
+    gap:30px;
+    max-width:1200px;
+    margin:0 auto;
 }
 
 /* IMAGE */
 .car-image{
-    width:55%;
+    width:50%;
+    flex-shrink:0;
 }
 
 .car-image img{
     width:100%;
-    border-radius:12px;
+    border-radius:10px;
+    object-fit:cover;
 }
 
 /* DETAILS */
 .details{
-    width:45%;
+    width:50%;
+    flex:1;
 }
 
 .details h2{
-    font-size:36px;
+    font-size:28px;
     margin-bottom:15px;
 }
 
 .specs{
-    margin:20px 0;
+    margin:15px 0;
 }
 
 .specs div{
-    margin-bottom:8px;
+    margin-bottom:10px;
     color:#555;
+    font-size:14px;
 }
 
 .price{
-    font-size:18px;
-    margin-top:20px;
+    font-size:16px;
+    margin-top:15px;
 }
 
 .ai-price{
     color:#E6A93E;
     font-weight:700;
     margin-top:5px;
+    font-size:20px;
 }
 
 /* DEMAND BAR */
 .demand{
-    margin-top:20px;
+    margin-top:15px;
+}
+
+.demand p{
+    font-size:13px;
+    margin-bottom:8px;
 }
 
 .bar{
-    height:10px;
+    height:8px;
     width:100%;
     background:#ddd;
     border-radius:5px;
@@ -98,6 +114,82 @@ body{
 }
 
 .bar-fill{
+    height:100%;
+    background:linear-gradient(90deg,#E6A93E,#d89b2d);
+    width:75%;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    background:#111;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    border:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#333;
+}
+
+@media (max-width: 900px){
+.container{
+    flex-direction:column;
+    gap:20px;
+}
+
+.car-image{
+    width:100%;
+}
+
+.details{
+    width:100%;
+}
+}
+
+@media (max-width: 600px){
+.container{
+    padding:20px 15px;
+    gap:15px;
+}
+
+.details h2{
+    font-size:20px;
+}
+
+.specs div{
+    font-size:13px;
+}
+
+.price{
+    font-size:14px;
+}
+
+.ai-price{
+    font-size:18px;
+}
+
+.demand p{
+    font-size:12px;
+}
+
+.btn{
+    width:100%;
+    padding:10px;
+    font-size:14px;
+}
+
+.nav-links a{
+    margin-left:10px;
+    font-size:12px;
+}
+}
     height:100%;
     width:70%;
     background:#E6A93E;

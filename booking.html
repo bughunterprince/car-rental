@@ -22,50 +22,68 @@ body{
 .navbar{
     display:flex;
     justify-content:space-between;
-    padding:25px 80px;
+    padding:15px 20px;
     background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo{
     font-weight:800;
+    font-size:18px;
 }
 
 .container{
     max-width:900px;
-    margin:60px auto;
+    margin:30px auto;
     background:white;
-    padding:40px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    padding:30px 20px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 h2{
-    margin-bottom:30px;
+    margin-bottom:25px;
+    font-size:24px;
 }
 
 .booking-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:30px;
+    gap:20px;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    color:#555;
+    margin-top:10px;
+    margin-bottom:5px;
 }
 
 input{
     width:100%;
-    padding:12px;
+    padding:10px;
     margin-top:5px;
     border:1px solid #ddd;
-    border-radius:6px;
+    border-radius:5px;
+    font-size:14px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#E6A93E;
 }
 
 .price-box{
-    margin-top:30px;
-    padding:20px;
+    margin-top:20px;
+    padding:15px;
     background:#EFEAE3;
     border-radius:8px;
 }
 
 .price-box p{
     margin-bottom:8px;
+    font-size:14px;
 }
 
 .ai-price{
@@ -74,15 +92,15 @@ input{
 }
 
 .total{
-    font-size:20px;
+    font-size:18px;
     font-weight:700;
     margin-top:10px;
 }
 
 .btn{
     display:inline-block;
-    margin-top:25px;
-    padding:12px 25px;
+    margin-top:20px;
+    padding:12px 20px;
     background:#111;
     color:white;
     text-decoration:none;
@@ -90,6 +108,51 @@ input{
     font-weight:600;
     cursor:pointer;
     border:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#333;
+}
+
+@media (max-width: 600px){
+.container{
+    padding:20px 15px;
+    margin:15px auto;
+}
+
+h2{
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.booking-grid{
+    grid-template-columns:1fr;
+    gap:15px;
+}
+
+input{
+    padding:10px;
+    font-size:16px;
+}
+
+.price-box{
+    padding:12px;
+}
+
+.price-box p{
+    font-size:12px;
+}
+
+.total{
+    font-size:16px;
+}
+
+.btn{
+    padding:10px 15px;
+    font-size:14px;
+}
 }
 
 @media(max-width:700px){

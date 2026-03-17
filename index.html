@@ -27,25 +27,46 @@ body{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:25px 80px;
+padding:15px 20px;
 background:white;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo{
 font-weight:800;
-font-size:20px;
-letter-spacing:2px;
+font-size:18px;
+letter-spacing:1px;
 }
 
 .nav-links{
 display:flex;
-gap:30px;
+gap:20px;
 }
 
 .nav-links a{
 text-decoration:none;
 color:#333;
+font-size:13px;
+}
+
+.menu-toggle{
+display:none;
+background:none;
+border:none;
+font-size:24px;
+cursor:pointer;
+}
+
+@media (max-width: 600px){
+.nav-links{
+display:left;
+flex-direction:column;
+gap:10px;
+}
+
+.nav-links a{
 font-size:14px;
+}
 }
 
 .btn{
@@ -59,45 +80,82 @@ font-weight:600;
 
 .hero{
     display:flex;
-    justify-content:space-between;
+    flex-direction:column;
+    justify-content:center;
     align-items:center;
-    padding:60px 80px;
+    padding:30px 20px;
     background-image: url("https://images.unsplash.com/photo-1502877338535-766e1452684a");
     background-size:cover;
     background-position:center;
-    border-radius:15px;
-    margin:40px;
+    border-radius:10px;
+    margin:20px;
+    min-height:300px;
 }
 
 .hero-text h1{
-    font-size:60px;
+    font-size:36px;
     font-weight:800;
     color:white;
+    text-align:center;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .search-box{
 background:white;
-padding:25px;
-border-radius:10px;
+padding:15px;
+border-radius:8px;
 display:flex;
-gap:20px;
+gap:10px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
 flex-wrap:wrap;
 justify-content:center;
+margin-top:20px;
 }
 
 .search-box div{
 display:flex;
 flex-direction:column;
+flex:1;
+min-width:150px;
 }
 
 .search-box label{
-font-size:13px;
+font-size:12px;
 color:#777;
 margin-bottom:5px;
 }
 
 .search-box input{
+padding:10px;
+border:1px solid #ddd;
+border-radius:5px;
+font-size:14px;
+}
+
+@media (max-width: 600px){
+.hero{
+    padding:20px 15px;
+    margin:10px;
+}
+
+.hero-text h1{
+    font-size:24px;
+}
+
+.search-box{
+    flex-direction:column;
+    gap:8px;
+    padding:10px;
+}
+
+.search-box div{
+    min-width:100%;
+}
+
+.search-box input{
+    font-size:16px;
+}
+}
 padding:10px;
 border:1px solid #ddd;
 border-radius:6px;
@@ -145,51 +203,146 @@ width:90%;
 /* Featured Cars */
 
 .featured{
-padding:80px;
+padding:40px 20px;
 text-align:center;
 }
 
 .featured h2{
-font-size:36px;
-margin-bottom:40px;
+font-size:28px;
+margin-bottom:30px;
 }
 
 .cars{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
 }
 
 .car{
 background:rgba(255,255,255,0.85);
 backdrop-filter:blur(10px);
-padding:20px;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+padding:15px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.car:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 .car img{
 width:100%;
-height:150px;
+height:120px;
 object-fit:cover;
-border-radius:8px;
+border-radius:6px;
+}
+
+@media (max-width: 600px){
+.featured{
+    padding:30px 15px;
+}
+
+.featured h2{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.cars{
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.car{
+    padding:10px;
+}
+
+.car img{
+    height:100px;
+}
 }
 
 /* Reviews */
 
 .reviews{
-padding:80px;
+padding:40px 20px;
 text-align:center;
 background:#EFEAE3;
+}
+
+.reviews h2{
+font-size:28px;
+margin-bottom:30px;
 }
 
 .review-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:20px;
 }
 
 .review{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.review p{
+font-size:14px;
+color:#666;
+margin:10px 0;
+}
+
+.review-author{
+font-weight:600;
+margin-top:10px;
+}
+
+.footer{
+background:#111;
+color:white;
+padding:40px 20px;
+text-align:center;
+}
+
+.footer p{
+font-size:14px;
+margin:10px 0;
+}
+
+@media (max-width: 600px){
+.reviews{
+    padding:30px 15px;
+}
+
+.reviews h2{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.review-grid{
+    grid-template-columns:1fr;
+    gap:15px;
+}
+
+.review{
+    padding:15px;
+}
+
+.review p{
+    font-size:13px;
+}
+
+.footer{
+    padding:30px 15px;
+}
+
+.footer p{
+    font-size:12px;
+}
+}
 background:white;
 padding:25px;
 border-radius:10px;
