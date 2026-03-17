@@ -31,6 +31,12 @@ body{
     font-weight:800;
 }
 
+.nav-links a {
+    margin-left: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
 .container{
     padding:50px 80px;
 }
@@ -77,6 +83,10 @@ h2{
     box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
+canvas {
+    max-width: 100%;
+}
+
 @media(max-width:900px){
     .charts{
         grid-template-columns:1fr;
@@ -89,6 +99,11 @@ h2{
 
 <div class="navbar">
     <div class="logo">ADMIN PANEL</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="userdash.html">User Dashboard</a>
+        <a href="login.html">Logout</a>
+    </div>
 </div>
 
 <div class="container">

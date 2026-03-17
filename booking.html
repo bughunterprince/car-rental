@@ -145,10 +145,11 @@ function calculateTotal() {
     const timeDiff = end - start;
     const days = timeDiff / (1000 * 3600 * 24);
 
-    const aiPrice = 3200; // AI suggested per day
+    const aiPrice = 3200;
     const total = days * aiPrice;
 
     document.querySelector(".total").innerText = "Total: ₹" + total;
+    alert("Demo booking created! Total: ₹" + total);
 }
 </script>
 

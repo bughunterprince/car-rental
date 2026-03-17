@@ -29,6 +29,8 @@ body{
     padding:40px;
     border-radius:12px;
     box-shadow:0 20px 40px rgba(0,0,0,0.08);
+    max-height:90vh;
+    overflow-y:auto;
 }
 
 h2{
@@ -54,6 +56,7 @@ button{
     border-radius:6px;
     font-weight:600;
     cursor:pointer;
+    margin-bottom:10px;
 }
 
 button:hover{
@@ -70,27 +73,6 @@ a{
     color:#E6A93E;
     text-decoration:none;
     font-weight:600;
-}
-
-.messages{
-    margin-bottom:16px;
-}
-
-.message{
-    padding:10px 12px;
-    border-radius:6px;
-    font-size:13px;
-    margin-bottom:8px;
-}
-
-.message.error{
-    background:#fde7e7;
-    color:#b12a2a;
-}
-
-.message.success{
-    background:#e8f7eb;
-    color:#246b35;
 }
 
 .camera-wrap{
@@ -115,7 +97,6 @@ video, canvas{
 .btn-muted{
     background:#222;
     color:#fff;
-    margin-bottom:10px;
 }
 
 .btn-muted:hover{
@@ -129,26 +110,16 @@ video, canvas{
 <div class="container">
     <h2>Create Account</h2>
 
-    {% if messages %}
-    <div class="messages">
-        {% for message in messages %}
-        <div class="message {{ message.tags }}">{{ message }}</div>
-        {% endfor %}
-    </div>
-    {% endif %}
+    <form onsubmit="handleRegister(event)">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
 
-    <form method="post" action="/register/">
-        {% csrf_token %}
-        <input type="text" name="full_name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="password" name="password" placeholder="Password" required>
-
-        <select name="role">
+        <select>
             <option value="user">User</option>
             <option value="admin">Admin</option>
         </select>
 
-        <input type="hidden" name="face_image" id="faceRegisterImage">
         <div class="camera-wrap">
             <video id="registerVideo" autoplay playsinline></video>
             <canvas id="registerCanvas" style="display:none;"></canvas>
@@ -166,7 +137,6 @@ video, canvas{
 const registerVideo = document.getElementById("registerVideo");
 const registerCanvas = document.getElementById("registerCanvas");
 const captureRegisterFaceBtn = document.getElementById("captureRegisterFaceBtn");
-const faceRegisterImage = document.getElementById("faceRegisterImage");
 
 async function startRegisterCamera() {
     try {
@@ -178,19 +148,23 @@ async function startRegisterCamera() {
 }
 
 captureRegisterFaceBtn.addEventListener("click", () => {
-    const width = registerVideo.videoWidth;
-    const height = registerVideo.videoHeight;
-    if (!width || !height) {
+    if (!registerVideo.videoWidth || !registerVideo.videoHeight) {
+        alert("Camera not ready");
         return;
     }
 
-    registerCanvas.width = width;
-    registerCanvas.height = height;
+    registerCanvas.width = registerVideo.videoWidth;
+    registerCanvas.height = registerVideo.videoHeight;
     const context = registerCanvas.getContext("2d");
-    context.drawImage(registerVideo, 0, 0, width, height);
-    faceRegisterImage.value = registerCanvas.toDataURL("image/jpeg");
-    captureRegisterFaceBtn.textContent = "Face Captured";
+    context.drawImage(registerVideo, 0, 0, registerCanvas.width, registerCanvas.height);
+    captureRegisterFaceBtn.textContent = "Face Captured ✓";
 });
+
+function handleRegister(e) {
+    e.preventDefault();
+    alert("Demo registration successful! Redirecting to login...");
+    setTimeout(() => window.location.href = "login.html", 1000);
+}
 
 startRegisterCamera();
 </script>

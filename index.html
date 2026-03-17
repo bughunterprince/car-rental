@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Car Rental</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#f8f6f1,#e8e3da,#f5f3ef);
+    color:#111;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 80px;
+background:white;
+}
+
+.logo{
+font-weight:800;
+font-size:20px;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-size:14px;
+}
+
+.btn{
+background:#E6A93E;
+padding:10px 18px;
+border-radius:6px;
+font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px 80px;
+    background-image: url("https://images.unsplash.com/photo-1502877338535-766e1452684a");
+    background-size:cover;
+    background-position:center;
+    border-radius:15px;
+    margin:40px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    font-weight:800;
+    color:white;
+}
+
+.search-box{
+background:white;
+padding:25px;
+border-radius:10px;
+display:flex;
+gap:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.search-box div{
+display:flex;
+flex-direction:column;
+}
+
+.search-box label{
+font-size:13px;
+color:#777;
+margin-bottom:5px;
+}
+
+.search-box input{
+padding:10px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+.search-btn{
+background:#111;
+color:white;
+padding:12px 25px;
+border-radius:6px;
+cursor:pointer;
+border:none;
+}
+
+.search-btn:hover{
+opacity:0.8;
+}
+
+.footer{
+margin-top:80px;
+text-align:center;
+padding:20px;
+color:#777;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:40px;
+}
+
+.search-box{
+flex-direction:column;
+width:90%;
+}
+
+}.footer{
+    background:#111;
+    color:white;
+    padding:60px 80px;
+}
+
+/* ADD NEW CSS BELOW THIS */
+
+/* Featured Cars */
+
+.featured{
+padding:80px;
+text-align:center;
+}
+
+.featured h2{
+font-size:36px;
+margin-bottom:40px;
+}
+
+.cars{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.car{
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.car img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+}
+
+/* Reviews */
+
+.reviews{
+padding:80px;
+text-align:center;
+background:#EFEAE3;
+}
+
+.review-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.review{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Stories */
+
+.stories{
+padding:80px;
+text-align:center;
+}
+
+.story-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.story img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+.car:hover,
+.story:hover,
+.review:hover{
+transform:translateY(-8px);
+transition:0.3s;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.navbar{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.hero{
+position:relative;
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+border-radius:20px;
+margin:40px;
+}
+
+.hero-text{
+position:relative;
+z-index:3;
+text-align:center;
+color:white;
+}
+
+.hero-text h1{
+font-size:60px;
+font-weight:800;
+margin-bottom:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">DRIVEFLOW</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cars.html">Browse Cars</a>
+        <a href="userdash.html">Dashboard</a>
+        <a href="login.html">Login</a>
+    </div>
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Premium Car Rental at Your Fingertips</h1>
+        <p style="color:white; font-size:18px; margin-top:20px;">AI-powered pricing and seamless booking experience</p>
+    </div>
+</section>
+
+<!-- FEATURED CARS -->
+<section class="featured">
+    <h2>Featured Fleet</h2>
+    <div class="cars">
+        <div class="car">
+            <img src="assets/images/creta.jpg" alt="Hyundai Creta">
+            <h3>Hyundai Creta</h3>
+            <p>SUV • Petrol • 5 Seats</p>
+            <p style="color:#E6A93E; font-weight:700; margin-top:10px;">₹3200/day</p>
+            <a href="carsdetail.html" class="btn" style="display:inline-block; margin-top:10px; color:white; text-decoration:none;">View Details</a>
+        </div>
+
+        <div class="car">
+            <img src="assets/images/xuv_700.jpg" alt="Mahindra XUV700">
+            <h3>Mahindra XUV700</h3>
+            <p>SUV • Diesel • 7 Seats</p>
+            <p style="color:#E6A93E; font-weight:700; margin-top:10px;">₹4100/day</p>
+            <a href="carsdetail.html" class="btn" style="display:inline-block; margin-top:10px; color:white; text-decoration:none;">View Details</a>
+        </div>
+
+        <div class="car">
+            <img src="assets/images/swift.jpg" alt="Maruti Swift">
+            <h3>Maruti Swift</h3>
+            <p>Hatchback • Petrol • 5 Seats</p>
+            <p style="color:#E6A93E; font-weight:700; margin-top:10px;">₹2100/day</p>
+            <a href="carsdetail.html" class="btn" style="display:inline-block; margin-top:10px; color:white; text-decoration:none;">View Details</a>
+        </div>
+    </div>
+</section>
+
+<div class="footer">
+    <p>&copy; 2026 DriveFlow - Premium Car Rental. All rights reserved.</p>
+</div>
+
+</body>
+</html>
